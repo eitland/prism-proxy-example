@@ -62,8 +62,7 @@ var app = connect()
   .use(prism.middleware)
 
 http.createServer(app).listen(3000); //<4>
-----------------
-
+-------------------
 <1> host: the server name of the server you normally would connect to
 <2> port: the port number on the server you would normally connect to
 <3> mode: see https://github.com/seglo/connect-prism for explanations
