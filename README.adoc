@@ -1,0 +1,71 @@
+# prism-proxy-example
+
+This is intended to be a very short example of how to use connect-prism as a recording proxy.
+
+## Why would I use this
+
+Examples of when you might consider using something like this:
+
+* you are developing against a slow or unreliable server
+* you frequently want to work offline but cannot since you rely on a server 
+* you are developing against a moving target 
+* you want to test agains specific responses that are hard to recreate on the fly
+
+## How to use this example
+
+### Prerequisites
+
+* git
+* node 
+* npm or yarn
+
+### Clone the repo
+
+`git clone https://github.com/eitland/prism-proxy-example.git`
+
+### Install dependencies
+
+#### Either: Install dependencies using yarn (preferred)
+[source,bash]
+-------------
+cd prism-proxy-example
+yarn install
+-------------
+
+#### Or: Install dependencies using npm
+
+[source,bash]
+-------------
+cd prism-proxy-example
+npm install
+-------------
+
+### Configure 
+
+Open the index.js file:
+
+[source,javascript]
+-------------------
+var connect = require('connect');
+var prism = require('connect-prism');
+var http = require('http');
+
+prism.create({
+  name: 'api',
+  context: '/api', 
+  host: 'localhost', //<1>
+  port: 8080, //<2>
+  mode: 'mockrecord' //<3>
+});
+
+var app = connect()
+  .use(prism.middleware)
+
+http.createServer(app).listen(3000); //<4>
+----------------
+
+<1> host: the server name of the server you normally would connect to
+<2> port: the port number on the server you would normally connect to
+<3> mode: see https://github.com/seglo/connect-prism for explanations
+<4> listen(...): here you can specify the port number you want your proxy to listen to
+
