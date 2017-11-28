@@ -69,3 +69,15 @@ http.createServer(app).listen(3000); //<4>
 <3> mode: see https://github.com/seglo/connect-prism for explanations
 <4> listen(...): here you can specify the port number you want your proxy to listen to
 
+### Start it
+
+`yarn start`
+
+### What to expect
+
+Given the configuration listed above expect the server 
+* to start at localhost:3000 
+* to answer calls by 
+** trying to look up a recorded response
+** if no recorded responose where found: proxy the request to localhost:8080 and record the response
+* to store recorder mocks in mocks/api
