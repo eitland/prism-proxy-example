@@ -1,0 +1,16 @@
+{
+  "name": "prism-proxy-example",
+  "version": "0.0.1",
+  "description": "A simple example for using prism-proxy",
+  "main": "index.js",
+  "author": "Erik V. Itland <erik.itland@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "connect": "^3.6.5",
+    "connect-prism": "^1.0.18"
+  }
+}
